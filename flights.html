@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('drinksback.jpg'); /* Replace 'background.jpg' with your image file */
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            overflow-x: hidden; /* Prevent horizontal overflow */
+        }
+
+        .titlecard {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            transform: translateY(30px); 
+			animation: fadeIn 3s ease forwards; 
+        }
+
+        nav {
+            background-color: #0024d5;
+            padding: 15px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .title {
+            color: #ffffff;
+            font-size: 80px;
+            text-align: left;
+            margin-bottom: 20px;
+            font-weight: bold;
+            max-width: 35%;
+            float: left;
+            margin-right: 30%;
+        }
+        
+        .titlebio {
+            color: #ffffff;
+            font-size: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            max-width: 35%;
+            float: left;
+            margin-right: 27%;
+            text-align: left;
+        }
+        
+        #titlebutton {
+            width: 150px;
+            height: 60px;
+            border: 5px solid white;
+            border-radius: 25px;
+            color: white;
+            background-color: transparent;
+            margin-right: 54%;
+        }
+        .booking{
+            width: 100%;
+            height: 100px;
+            background-color: #0024d5;
+
+        }
+        .booking table{
+            width: 100%;
+        }
+        .booking table button{
+            width: 200px;
+            margin: auto;
+            height: 150px;
+            border: 5px solid #fff;
+            border-radius: 25px;
+            background-color: transparent;
+            color: #fff;
+            font-size: 25px;
+            margin-left: 100px;
+            margin-top: 40px;
+        }
+
+        .quickbook{
+            width: 100%;
+            height: auto;
+            background-color: #ffffff;
+            padding-top: 30px;
+            padding-bottom: 100px;
+        }
+
+        .quickbook table{
+            width: 100%;
+            margin: auto;
+        }
+        .quickbook table button{
+            width: 300px;
+            margin: auto;
+            height: 150px;
+            border: 5px solid #0024d5;
+            border-radius: 25px;
+            background-color: transparent;
+            color: #0024d5;
+            font-size: 25px;
+            margin-left: 100px;
+            margin-top: 80px;
+        }
+        .footer{
+            width: 100%;
+            background-color: #0024d5;
+            color: white;
+            height: 50px;
+            padding: 100px;
+
+        }
+        .footer table{
+            width: 100%;
+        }
+        #sitemap{
+            font-size: 25px;
+            text-decoration: none;
+        }
+        .footer table li{
+            list-style: none;
+            text-decoration: underline;
+        }
+        #smallsite{
+            width: 30%;
+        }
+        #footertitle{
+            font-size: 60px;
+            font-weight: bold;
+            padding-left: 50px;
+        }
+        .card{
+            width: 70%;
+            height: 250px;
+            border-radius: 25px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            margin: auto;
+
+            margin-bottom: 40px;
+            display: flex;
+        }
+        .imageforcard{
+           width: 40%;
+           height: 250px;
+           background-size: cover;
+           border-top-left-radius: 25px;
+           border-bottom-left-radius: 25px;
+        }
+        .writing{
+            margin: 20px;
+        }
+        .card button{
+            background-color: white;
+            border: 5px blue solid;
+            border-radius: 25px;
+            width: 130px;
+            height: 60px;
+            padding: 10px;
+            color: #0024d5;
+
+        }
+        .payfororder{
+            width: 100%;
+            background-color: rgb(213, 213, 213);
+            padding-top: 40px;
+            padding-bottom: 40px;
+
+        }
+        .payform{
+
+            border-radius: 25px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            margin: auto;
+            display: flex;
+            padding: 30px;
+        }
+        @keyframes fadeIn {
+		  from {
+			opacity: 0; /* Start from completely transparent */
+			transform: translateY(30px); 
+		  }
+		  to {
+			opacity: 1; /* End at fully visible */
+			transform: translateY(0); 
+		  }
+		}
+        .toppay{
+            text-align: center;
+            background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+        }
+
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+.card-container{
+    width: 60%;
+    height: auto;
+    border-radius: 25px;
+    margin:auto;
+    margin-top: 50px;
+    padding-top: 20px;
+    
+    font-size: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}  
+.cardwriting{
+    display: flex;
+
+}
+.cardfrom{
+    width: 33%;
+    text-align: center;
+
+}
+.arrow{
+    width: 33%;
+    margin: auto;
+
+}
+.cardimage{
+    width: 33%;
+    display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+}
+.cardID{
+    width: 33%;
+    text-align: center;
+}
+.cardPriceHolder{
+    padding-top: 1px;
+    padding-bottom: 15px;
+    height: 50px;
+    width: 100%;
+    background-color: rgb(177, 177, 177);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+
+}
+.cardPrice{
+    margin-top: 20px;
+    width: 33%;
+    text-align: center; 
+    height: auto;
+
+
+}
+.blackline{
+    width: 70%;
+    height: 3px;
+}
+.blacklineholder{
+    display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+}
+
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="titlecard">
+    <div class="title">
+        SkyVista Menu
+    </div>
+    <div class="titlebio">
+        PAY FOR YOUR DRINKS/FOOD NOW
+    </div>
+
+
+</div>
+
+<div class="booking">
+ .
+</div>
+
+<div class="quickbook">
+
+    <div class="card-container">
+        <div class="cardwriting">
+            <div class="cardfrom">
+                 <p>Sydney</p> 
+                 <h3>11:30AM</h3>
+            </div>
+            <div class="cardimage">
+            <image src="arrow.png" class="arrow"></image>
+        </div>
+            <div class="cardfrom">
+                <p>Hobart</p> 
+                <h3>2:00PM</h3>
+           </div>
+        </div>
+        <div class="blacklineholder">
+        <image src="black.jpeg" class="blackline"></image>
+    </div>
+        <p class="cardID">Flight2384</p>
+        <div class="cardPriceHolder">
+        <p class="cardPrice"><a href=""> from $250</a></p>
+        </div>
+
+    </div>
+
+    <div class="card-container">
+        <div class="cardwriting">
+            <div class="cardfrom">
+                 <p>Sydney</p> 
+                 <h3>11:30AM</h3>
+            </div>
+            <div class="cardimage">
+            <image src="arrow.png" class="arrow"></image>
+        </div>
+            <div class="cardfrom">
+                <p>Hobart</p> 
+                <h3>2:00PM</h3>
+           </div>
+        </div>
+        <div class="blacklineholder">
+        <image src="black.jpeg" class="blackline"></image>
+    </div>
+        <p class="cardID">Flight2384</p>
+        <div class="cardPriceHolder">
+        <p class="cardPrice"><a href=""> from $250</a></p>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <table>
+        <tr>
+            <td id="smallsite">
+                <li id="sitemap">SiteMap</li>
+                <li>Home</li>
+                <li>About us</li>
+                <li>Contact us</li>
+                <li>Book now</li>
+            </td>
+            <td id="footertitle">SkyVista</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
