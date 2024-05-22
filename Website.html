@@ -187,6 +187,8 @@
             font-weight: bold;
             padding-left: 50px;
         }
+		
+		
     </style>
 </head>
 <body>
@@ -194,8 +196,8 @@
 <nav>
     <ul>
         <li><a href="http://localhost:8000/Website.html#">Home</a></li>
-        <li><a href="http://localhost:8000/about.html">About</a></li>
-        <li><a href="#">Services</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="http://localhost:8000/DRINKSMENU.html">Services</a></li>
         <li><a href="#">Contact</a></li>
     </ul>
 </nav>
@@ -212,8 +214,10 @@
     </button>
 </div>
 
+
 <div class="booking">
-    <table>
+<form id="bookingForm" onsubmit="saveFormData(event)">    
+<table>
         <tr id="labeltitle">
             <td>
                 <label for="from">Where From:</label>
@@ -230,23 +234,47 @@
         </tr>
 		<tr id="depret">
 			<td>
-				<input type="search" list="list" id="from" name="from">
-				<datalist id="list">
+				<input type="search" list="list1" id="from" name="from" required>
+				<datalist id="list1">
 					<option>Sydney</option>
+					<option>Melbourne</option>
+					<option>Hobart</option>
+					<option>Perth</option>
+					<option>Brisbane</option>
+					<option>Alice Spring</option>
+					<option>Canberra</option>
+					<option>Adelaide</option>
 				</datalist>
 			</td>
 			<td>
-				<input type="search" id="to" name="to">
+				<input type="search" list="list2" id="to" name="to" required>
+				<datalist id="list2">
+					<option>Sydney</option>
+					<option>Melbourne</option>
+					<option>Hobart</option>
+					<option>Perth</option>
+					<option>Brisbane</option>
+					<option>Alice Spring</option>
+					<option>Canberra</option>
+					<option>Adelaide</option>
+				</datalist>
 			</td>
 			<td>
 				<label for="depart">Depart:</label>
-				<input type="date" id="date" name="date">
+				<input type="date" id="depart" name="depart" required>
 				<label for="return">Return:</label>
-				<input type="date" id="date" name="date">
-			</td>			
+				<input type="date" id="return" name="return" required>
+			</td>
+			<td>
+				<button type="submit" onclick="saveFormData(event)">
+					Search Flight
+				</button>
+			</td>
 		</tr>
     </table>
+</form>
 </div>
+
 
 <div class="quickbook">
     <table>
@@ -300,5 +328,33 @@
         </tr>
     </table>
 </div>
+
+<script>
+	function saveFormData(event){
+		event.preventDefault();
+			
+		const formData = {
+			departure: {
+				from: document.getElementById('from').value,
+				depart: document.getElementById('depart').value,
+			},
+			arrival: {
+				to: document.getElementById('to').value,
+				return: document.getElementById('return').value
+				
+			}
+
+		};
+		console.log(formData);
+		
+		localStorage.setItem('bookingData', JSON.stringify(formData));
+		console.log('Form data saved:', formData);
+		
+		window.location.href = 'http://localhost:8000/flights.html';
+		
+		
+		}
+	
+</script>
 </body>
 </html>

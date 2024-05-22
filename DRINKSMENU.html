@@ -320,9 +320,9 @@ button:hover {
 
 <nav>
     <ul>
-        <li><a href="#">Home</a></li>
+        <li><a href="http://localhost:8000/Website.html#">Home</a></li>
         <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
+        <li><a href="http://localhost:8000/DRINKSMENU.html#">Services</a></li>
         <li><a href="#">Contact</a></li>
     </ul>
 </nav>
@@ -348,7 +348,7 @@ button:hover {
             <h4>Red Wine</h4>
             <p>Price: $50</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <button id="redwine">
+            <button id="redwine" onclick="addWine()">
                 Add to order
             </button>
         </div>
@@ -356,12 +356,12 @@ button:hover {
     </div>
 
     <div class="card">
-        <image class="imageforcard" src="redwine.jpg"></image>
+        <image class="imageforcard" src="beer.jpg"></image>
         <div class="writing">
-            <h4>Red Wine</h4>
-            <p>Price: $50</p>
+            <h4>Beer</h4>
+            <p>Price: $10</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <button id="redwine">
+            <button id="beer" onclick="addBeer()">
                 Add to order
             </button>
         </div>
@@ -373,12 +373,10 @@ button:hover {
 
 <div class="payfororder">
     <div class="toppay">
-    <div class="amount"><h3>Your amount is: 40</h3></div>
+    <div class="amount"><h3>Your amount is: </h3></div>
     <div class="purchased">
-        <li>Item 1</li>
-        <li>Item 1</li>
-        <li>Item 1</li>
-        <li>Item 1</li>
+        <ul id='list'>
+		</ul>
     </div>
 </div>
 <div class="card-form-container">
@@ -425,5 +423,34 @@ button:hover {
         </tr>
     </table>
 </div>
+<script>
+	let price = 0;
+	
+	function addWine(){
+		let winePrice=50;
+		const newItem = document.createElement('li');
+		
+		price = price + winePrice;
+		
+		const newItemText = `wine`;
+		newItem.textContent = newItemText;
+		
+		document.getElementById('list').appendChild(newItem);
+		
+	
+	}
+	
+	function addBeer(){
+		let beerPrice=10;
+		const newItem = document.createElement('li');
+		price = price + beerPrice;
+		
+		const newItemText = `beer`;
+		newItem.textContent = newItemText;
+		
+		document.getElementById('list').appendChild(newItem);
+		
+	}
+</script>
 </body>
 </html>

@@ -308,13 +308,13 @@ button:hover {
   align-items: center;
 }
 
-    </style>
+</style>
 </head>
 <body>
 
 <nav>
     <ul>
-        <li><a href="#">Home</a></li>
+        <li><a href="http://localhost:8000/Website.html#">Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Services</a></li>
         <li><a href="#">Contact</a></li>
@@ -323,10 +323,10 @@ button:hover {
 
 <div class="titlecard">
     <div class="title">
-        SkyVista Menu
+        SkyVista Flights
     </div>
     <div class="titlebio">
-        PAY FOR YOUR DRINKS/FOOD NOW
+        
     </div>
 
 
@@ -341,23 +341,25 @@ button:hover {
     <div class="card-container">
         <div class="cardwriting">
             <div class="cardfrom">
-                 <p>Sydney</p> 
-                 <h3>11:30AM</h3>
+                 <p id="deptLocation"></p> 
+                 <h3 id="deptTime"></h3>
+				 <label id="time1"></label>
             </div>
             <div class="cardimage">
             <image src="arrow.png" class="arrow"></image>
         </div>
             <div class="cardfrom">
-                <p>Hobart</p> 
-                <h3>2:00PM</h3>
+                <p id="arriveLocation"></p> 
+                <h3 id="arriveTime"></h3>
+				<label id="time2"></label>
            </div>
         </div>
         <div class="blacklineholder">
-        <image src="black.jpeg" class="blackline"></image>
+        <image src="black.jpg" class="blackline"></image>
     </div>
-        <p class="cardID">Flight2384</p>
+        <p id="planeID">Flight</p>
         <div class="cardPriceHolder">
-        <p class="cardPrice"><a href=""> from $250</a></p>
+        <p class="cardPrice"><button onclick="addInfo()">from $250</button></p>
         </div>
 
     </div>
@@ -365,23 +367,25 @@ button:hover {
     <div class="card-container">
         <div class="cardwriting">
             <div class="cardfrom">
-                 <p>Sydney</p> 
-                 <h3>11:30AM</h3>
+                 <p id="deptLocation2"></p> 
+                 <h3 id="deptTime2"></h3>
+				 <label id="time3"></label>
             </div>
             <div class="cardimage">
             <image src="arrow.png" class="arrow"></image>
         </div>
             <div class="cardfrom">
-                <p>Hobart</p> 
-                <h3>2:00PM</h3>
+                <p id="arriveLocation2"></p> 
+                <h3 id="arriveTime2"></h3>
+				<label id="time4"></label>
            </div>
         </div>
         <div class="blacklineholder">
-        <image src="black.jpeg" class="blackline"></image>
+        <image src="black.jpg" class="blackline"></image>
     </div>
-        <p class="cardID">Flight2384</p>
+        <p id="planeID2">Flight</p>
         <div class="cardPriceHolder">
-        <p class="cardPrice"><a href=""> from $250</a></p>
+        <p class="cardPrice"><button onclick="addInfo2()">from $250</button></p>
         </div>
 
     </div>
@@ -402,5 +406,124 @@ button:hover {
         </tr>
     </table>
 </div>
+
+<script>
+	let randomTime;
+	let randomNum; 
+	let randomTime2;
+	let randomNum2; 
+	let randomTime3;
+	let randomTime4;
+
+	document.addEventListener('DOMContentLoaded', (event) => {
+		const bookingData = JSON.parse(localStorage.getItem('bookingData'));
+
+		if (bookingData) {
+			document.getElementById('deptLocation').textContent = bookingData.departure.from;
+			document.getElementById('arriveLocation').textContent = bookingData.arrival.to;
+			document.getElementById('deptTime').textContent = bookingData.departure.depart;
+			document.getElementById('arriveTime').textContent = bookingData.arrival.return;
+			
+			document.getElementById('deptLocation2').textContent = bookingData.departure.from;
+			document.getElementById('arriveLocation2').textContent = bookingData.arrival.to;
+			document.getElementById('deptTime2').textContent = bookingData.departure.depart;
+			document.getElementById('arriveTime2').textContent = bookingData.arrival.return;
+			
+			randomTime = generateRandomTime();
+			document.getElementById('time1').textContent = randomTime;
+			
+			randomTime2 = generateRandomTime();
+			document.getElementById('time2').textContent = randomTime2;
+			
+			randomTime3 = generateRandomTime();
+			document.getElementById('time3').textContent = randomTime3;
+			
+			randomTime4 = generateRandomTime();
+			document.getElementById('time4').textContent = randomTime4;
+			
+			randomNum = generateRandomNumber();
+			document.getElementById('planeID').textContent += randomNum;
+			
+			randomNum2 = generateRandomNumber();
+			
+			document.getElementById('planeID2').textContent += randomNum2;
+
+			
+			
+
+		}
+		
+		function generateRandomTime() {
+			const hours = Math.floor(Math.random() * 24); 
+			const minutes = Math.floor(Math.random() * 60);
+
+			const formattedHours = hours < 10 ? `0${hours}` : hours.toString();
+			const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes.toString();
+
+			const randomTime = `${formattedHours}:${formattedMinutes}`;
+			
+			return randomTime;
+			
+		}
+		
+		function generateRandomNumber() {
+
+			const randomNumber = Math.floor(Math.random() * 100000);
+			
+			// If the generated number is less than 10000, add leading zeros to make it 5 digits
+			const formattedNumber = String(randomNumber).padStart(5, '0');
+			
+			return formattedNumber;
+		}
+
+	});
+	
+	function addInfo(){
+		const bookKey = 'bookingData';
+		const bookExist = localStorage.getItem(bookKey);
+		
+		let bookData = {};
+		
+		if (bookExist) {
+			bookData = JSON.parse(bookExist);
+		
+		}
+		
+		bookData.deptTime = randomTime;
+		bookData.returnTime = randomTime2;
+		bookData.planeID = 'Flight' + randomNum;
+		
+		const modifiedBook = JSON.stringify(bookData);
+		localStorage.setItem(bookKey, modifiedBook);
+				
+		window.location.href = 'http://localhost:8000/booking.html';
+	
+	}
+	
+	function addInfo2(){
+		const bookKey = 'bookingData';
+		const bookExist = localStorage.getItem(bookKey);
+		
+		let bookData = {};
+		
+		if (bookExist) {
+			bookData = JSON.parse(bookExist);
+		
+		}
+		
+		bookData.deptTime = randomTime3;
+		bookData.returnTime = randomTime4;
+		bookData.planeID = 'Flight' + randomNum2;
+		
+		const modifiedBook = JSON.stringify(bookData);
+		localStorage.setItem(bookKey, modifiedBook);
+		
+		
+		window.location.href = 'http://localhost:8000/booking.html';
+		
+	}
+	
+	
+</script>
 </body>
 </html>
