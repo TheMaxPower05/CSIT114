@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('drinksback.jpg'); /* Replace 'background.jpg' with your image file */
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            overflow-x: hidden; /* Prevent horizontal overflow */
+        }
+
+        .titlecard {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            transform: translateY(30px); 
+			animation: fadeIn 3s ease forwards; 
+        }
+
+        nav {
+            background-color: #0024d5;
+            padding: 15px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .title {
+            color: #ffffff;
+            font-size: 80px;
+            text-align: left;
+            margin-bottom: 20px;
+            font-weight: bold;
+            max-width: 35%;
+            float: left;
+            margin-right: 30%;
+        }
+        
+        .titlebio {
+            color: #ffffff;
+            font-size: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            max-width: 35%;
+            float: left;
+            margin-right: 27%;
+            text-align: left;
+        }
+        
+        #titlebutton {
+            width: 150px;
+            height: 60px;
+            border: 5px solid white;
+            border-radius: 25px;
+            color: white;
+            background-color: transparent;
+            margin-right: 54%;
+        }
+        .booking{
+            width: 100%;
+            height: 100px;
+            background-color: #0024d5;
+
+        }
+        .booking table{
+            width: 100%;
+        }
+        .booking table button{
+            width: 200px;
+            margin: auto;
+            height: 150px;
+            border: 5px solid #fff;
+            border-radius: 25px;
+            background-color: transparent;
+            color: #fff;
+            font-size: 25px;
+            margin-left: 100px;
+            margin-top: 40px;
+        }
+
+        .quickbook{
+            width: 100%;
+            height: auto;
+            background-color: #ffffff;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .quickbook table{
+            width: 100%;
+            margin: auto;
+        }
+        .quickbook table button{
+            width: 300px;
+            margin: auto;
+            height: 150px;
+            border: 5px solid #0024d5;
+            border-radius: 25px;
+            background-color: transparent;
+            color: #0024d5;
+            font-size: 25px;
+            margin-left: 100px;
+            margin-top: 80px;
+        }
+        .footer{
+            width: 100%;
+            background-color: #0024d5;
+            color: white;
+            height: 50px;
+            padding: 100px;
+
+        }
+        .footer table{
+            width: 100%;
+        }
+        #sitemap{
+            font-size: 25px;
+            text-decoration: none;
+        }
+        .footer table li{
+            list-style: none;
+            text-decoration: underline;
+        }
+        #smallsite{
+            width: 30%;
+        }
+        #footertitle{
+            font-size: 60px;
+            font-weight: bold;
+            padding-left: 50px;
+        }
+        .card{
+            width: 70%;
+            height: 250px;
+            border-radius: 25px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            margin: auto;
+
+            margin-bottom: 40px;
+            display: flex;
+        }
+        .imageforcard{
+           width: 80%;
+           height: 250px;
+           background-size: cover;
+           border-top-left-radius: 25px;
+           border-bottom-left-radius: 25px;
+        }
+        .writing{
+            width: 70%;
+            margin: 20px;
+        }
+        .card button{
+            background-color: white;
+            border: 5px blue solid;
+            border-radius: 25px;
+            width: 130px;
+            height: 60px;
+            padding: 10px;
+            color: #0024d5;
+
+        }
+        .payfororder{
+            width: 100%;
+            background-color: rgb(213, 213, 213);
+            padding-top: 40px;
+            padding-bottom: 40px;
+
+        }
+        .payform{
+
+            border-radius: 25px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            margin: auto;
+            display: flex;
+            padding: 30px;
+        }
+        @keyframes fadeIn {
+		  from {
+			opacity: 0; /* Start from completely transparent */
+			transform: translateY(30px); 
+		  }
+		  to {
+			opacity: 1; /* End at fully visible */
+			transform: translateY(0); 
+		  }
+		}
+        .toppay{
+            text-align: center;
+            background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+        }
+.card-form-container {
+    background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.card-form-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.card-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-row .form-group {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.form-row .form-group:last-child {
+    margin-right: 0;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+.purchased li{
+    list-style: none;
+    text-align: left;
+}
+.writing button:hover{
+    background-color: blue;
+    color: white;
+}
+
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="http://localhost:8000/Website.html#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="http://localhost:8000/DRINKSMENU.html#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="titlecard">
+    <div class="title">
+        SkyVista Menu
+    </div>
+    <div class="titlebio">
+        PAY FOR YOUR DRINKS/FOOD NOW
+    </div>
+
+</div>
+
+<div class="booking">
+ .
+</div>
+
+<div class="quickbook">
+
+{% for dict1 in menu['menu'] %}
+    <div class="card">
+        
+        <image class="imageforcard" src="{{ dict1['image'] }}"></image>
+        
+        <div class="writing">
+            <h4>{{ dict1['name'] }}</h4>
+            <p>{{ dict1['price'] }}</p>
+            <p>{{ dict1['shortDescription'] }}</p>
+            <button id="{{ dict1['name'] }}" onclick="addBeer()">
+                Add to order
+            </button>
+        </div>
+   
+    </div>
+ {% endfor %}
+
+</div>
+
+<div class="payfororder">
+    <div class="toppay">
+    <div class="amount"><h3 id="total">Your amount is: </h3></div>
+    <div class="purchased">
+        <ul id='list'>
+			<li id='wineList'></li>
+			<li id='beerList'></li>
+		</ul>
+    </div>
+</div>
+<div class="card-form-container">
+    <h2>Enter Card Details</h2>
+    <form class="card-form">
+        <div class="form-group">
+            <label for="BookingId">Booking Number</label>
+            <input type="text" id="BookingID" name="BookingID" required>
+        </div>
+        <div class="form-group">
+            <label for="cardholder-name">Cardholder Name</label>
+            <input type="text" id="cardholder-name" name="cardholder-name" required>
+        </div>
+        <div class="form-group">
+            <label for="card-number">Card Number</label>
+            <input type="text" id="card-number" name="card-number" pattern="\d{16}" maxlength="16" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="expiration-date">Expiration Date</label>
+                <input type="text" id="expiration-date" name="expiration-date" placeholder="MM/YY" pattern="\d{2}/\d{2}" required>
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" pattern="\d{3}" maxlength="3" required>
+            </div>
+        </div>
+        <button type="submit">Pay Now</button>
+    </form>
+</div>
+</div>
+
+<div class="footer">
+    <table>
+        <tr>
+            <td id="smallsite">
+                <li id="sitemap">SiteMap</li>
+                <li>Home</li>
+                <li>About us</li>
+                <li>Contact us</li>
+                <li>Book now</li>
+            </td>
+            <td id="footertitle">SkyVista</td>
+        </tr>
+    </table>
+</div>
+<script>
+	let price = 0;
+	let wineAmount = 0;
+	let beerAmount = 0;
+	
+	function addWine(){
+		let winePrice=50;
+		
+		price = price + winePrice;
+		
+		wineAmount = wineAmount+1;
+		document.getElementById('wineList').textContent = `wine x`+wineAmount;
+		
+		document.getElementById('total').textContent = `Your amount is: $${price}`;
+		
+	
+	}
+	
+	function addBeer(){
+		let beerPrice=10;
+		price = price + beerPrice;
+		
+		beerAmount = beerAmount+1;
+		document.getElementById('beerList').textContent = `beer x` +beerAmount;
+		
+		document.getElementById('total').textContent = `Your amount is: $${price}`;
+		
+	}
+	
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+    "menu": [
+      {
+        "name": "Croissant",
+        "price": "$5",
+        "shortDescription": "Freshly baked flaky pastry.",
+        "image": "croissant.png"
+      },
+      {
+        "name": "Sandwich",
+        "price": "$8",
+        "shortDescription": "Delicious sandwich with a variety of fillings.",
+        "image": "sandwich.png"
+      },
+      {
+        "name": "Salad",
+        "price": "$10",
+        "shortDescription": "Fresh and healthy salad options.",
+        "image": "salad.png"
+      },
+      {
+        "name": "Beer",
+        "price": "$6",
+        "shortDescription": "Refreshing beer selections.",
+        "image": "beer.png"
+      },
+      {
+        "name": "Wine",
+        "price": "$12",
+        "shortDescription": "Quality wines from around the world.",
+        "image": "wine.png"
+      }
+    ]
+  }
+  
