@@ -1,72 +1,144 @@
 {
-    "flightData": [
-        {
-            "flightID": "flight12345",
-            "departure": {
-                "time": "2024-06-15T09:30:00",
-                "location": "Brisbane",
-                "destination": "Sydney"
-            },
-            "planeSeat": {
-                "1A": false,
-                "1B": true,
-                "2A": true,
-                "2B": true,
-                "3A": false,
-                "3B": false,
-                "4A": true,
-                "4B": true,
-                "5A": true,
-                "5B": false,
-                "6A": true,
-                "6B": true,
-                "7A": true,
-                "7B": true,
-                "8A": true,
-                "8B": true,
-                "9A": true,
-                "9B": false,
-                "10A": true,
-                "10B": true,
-                "11A": true,
-                "11B": true,
-                "12A": false,
-                "12B": true
-            }
-        },
-        {
-            "flightID": "flight54321",
-            "departure": {
-                "time": "2024-07-20T12:45:00",
-                "location": "Sydney",
-                "destination": "Melbourne"
-            },
-            "planeSeat": {
-                "1A": true,
-                "1B": true,
-                "2A": true,
-                "2B": true,
-                "3A": true,
-                "3B": true,
-                "4A": true,
-                "4B": true,
-                "5A": true,
-                "5B": true,
-                "6A": true,
-                "6B": true,
-                "7A": true,
-                "7B": true,
-                "8A": true,
-                "8B": true,
-                "9A": true,
-                "9B": true,
-                "10A": true,
-                "10B": true,
-                "11A": true,
-                "11B": true,
-                "12A": true,
-                "12B": true
-            }
-        }
-    ]
+  "flightData": [
+    {
+      "flightID": "flight12345",
+      "departure": {
+        "time": "2024-06-15T09:30:00",
+        "location": "Brisbane",
+        "destination": "Sydney",
+        "arrivalTime": "2024-06-15T10:30:00"
+      },
+      "planeSeat": {
+        "1A": false,
+        "1B": true,
+        "2A": true,
+        "2B": true,
+        "3A": false,
+        "3B": false,
+        "4A": true,
+        "4B": true,
+        "5A": true,
+        "5B": false,
+        "6A": true,
+        "6B": true,
+        "7A": true,
+        "7B": true,
+        "8A": true,
+        "8B": true,
+        "9A": true,
+        "9B": false,
+        "10A": true,
+        "10B": true,
+        "11A": true,
+        "11B": true,
+        "12A": false,
+        "12B": true
+      }
+    },
+    {
+      "flightID": "flight54321",
+      "departure": {
+        "time": "2024-07-20T12:45:00",
+        "location": "Sydney",
+        "destination": "Melbourne",
+        "arrivalTime": "2024-06-15T14:00:00"
+      },
+      "planeSeat": {
+        "1A": true,
+        "1B": true,
+        "2A": true,
+        "2B": true,
+        "3A": true,
+        "3B": true,
+        "4A": true,
+        "4B": true,
+        "5A": true,
+        "5B": true,
+        "6A": true,
+        "6B": true,
+        "7A": true,
+        "7B": true,
+        "8A": true,
+        "8B": true,
+        "9A": true,
+        "9B": true,
+        "10A": true,
+        "10B": true,
+        "11A": true,
+        "11B": true,
+        "12A": true,
+        "12B": true
+      }
+    },
+    {
+      "flightID": "flight67890",
+      "departure": {
+        "time": "2024-08-10T14:00:00",
+        "location": "Melbourne",
+        "destination": "Perth",
+        "arrivalTime": "2024-08-10T17:30:00"
+      },
+      "planeSeat": {
+        "1A": true,
+        "1B": true,
+        "2A": true,
+        "2B": true,
+        "3A": true,
+        "3B": true,
+        "4A": true,
+        "4B": true,
+        "5A": true,
+        "5B": true,
+        "6A": false,
+        "6B": true,
+        "7A": true,
+        "7B": false,
+        "8A": false,
+        "8B": true,
+        "9A": true,
+        "9B": false,
+        "10A": true,
+        "10B": true,
+        "11A": true,
+        "11B": true,
+        "12A": true,
+        "12B": true
+      }
+    },
+    {
+      "flightID": "flight13579",
+      "departure": {
+        "time": "2024-09-05T08:15:00",
+        "location": "Perth",
+        "destination": "Brisbane",
+        "arrivalTime": "2024-09-05T12:30:00"
+      },
+      "planeSeat": {
+        "1A": true,
+        "1B": true,
+        "2A": true,
+        "2B": false,
+        "3A": true,
+        "3B": true,
+        "4A": true,
+        "4B": true,
+        "5A": false,
+        "5B": false,
+        "6A": false,
+        "6B": true,
+        "7A": true,
+        "7B": true,
+        "8A": true,
+        "8B": true,
+        "9A": false,
+        "9B": true,
+        "10A": true,
+        "10B": true,
+        "11A": true,
+        "11B": true,
+        "12A": true,
+        "12B": true
+      }
+    }
+  ]
 }

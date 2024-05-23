@@ -2,33 +2,33 @@
     "menu": [
       {
         "name": "Croissant",
-        "price": "$5",
+        "price": 5,
         "shortDescription": "Freshly baked flaky pastry.",
-        "image": "croissant.png"
+        "image": "https://img.delicious.com.au/RzgR3kXD/w1200/del/2015/12/cornetti-italian-croissants-24713-1.jpg"
       },
       {
         "name": "Sandwich",
-        "price": "$8",
+        "price": 8,
         "shortDescription": "Delicious sandwich with a variety of fillings.",
-        "image": "sandwich.png"
+        "image": "https://www.southernliving.com/thmb/UW4kKKL-_M3WgP7pkL6Pb6lwcgM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Ham_Sandwich_011-1-49227336bc074513aaf8fdbde440eafe.jpg"
       },
       {
         "name": "Salad",
-        "price": "$10",
+        "price": 10,
         "shortDescription": "Fresh and healthy salad options.",
-        "image": "salad.png"
+        "image": "https://www.foodandwine.com/thmb/IuZPWAXBp4YaT9hn1YLHhuijT3k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/FAW-recipes-big-italian-salad-hero-83e6ea846722478f8feb1eea33158b00.jpg"
       },
       {
         "name": "Beer",
-        "price": "$6",
+        "price": 6,
         "shortDescription": "Refreshing beer selections.",
-        "image": "beer.png"
+        "image": "https://images.everydayhealth.com/images/diet-nutrition/everything-you-need-to-know-about-nonalcoholic-beer-1440x810.jpg"
       },
       {
         "name": "Wine",
-        "price": "$12",
+        "price": 12,
         "shortDescription": "Quality wines from around the world.",
-        "image": "wine.png"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Red_and_white_wine_12-2015.jpg"
       }
     ]
   }
