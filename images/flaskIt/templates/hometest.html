@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1513922203437-86dc31ea478f?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZGFyayUyMHBsYW5lfGVufDB8fDB8fHww'); /* Replace 'background.jpg' with your image file */
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            overflow-x: hidden; /* Prevent horizontal overflow */
+        }
+
+        .titlecard {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+			opacity: 0; /* Initially hidden */
+			transform: translateY(30px); 
+			animation: fadeIn 3s ease forwards; 
+        }
+		
+		@keyframes fadeIn {
+		  from {
+			opacity: 0; /* Start from completely transparent */
+			transform: translateY(30px); 
+		  }
+		  to {
+			opacity: 1; /* End at fully visible */
+			transform: translateY(0); 
+		  }
+		}
+
+        nav {
+            background-color: #0024d5;
+            padding: 15px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .title {
+            color: #ffffff;
+            font-size: 80px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            max-width: 35%;
+            float: left;
+            margin-right: 40%;
+        }
+        
+        .titlebio {
+            color: #ffffff;
+            font-size: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            max-width: 35%;
+            float: left;
+            margin-right: 27%;
+            text-align: left;
+        }
+        
+        #titlebutton {
+            width: 150px;
+            height: 60px;
+            border: 5px solid white;
+            border-radius: 25px;
+            color: white;
+            background-color: transparent;
+            margin-right: 54%;
+        }
+        .booking{
+            width: 100%;
+            height: 100px;
+            background-color: #0024d5;
+			
+
+        }
+        .booking table{
+            width: 100%;
+			margin-left: 100px;
+		
+        }
+		
+        .booking table label{
+			display: block;
+            margin-left: -100px;
+            margin-bottom: -25px;
+        }
+		
+		#labeltitle{
+			width: 250px;
+            height: 50px;
+            background-color: transparent;
+            color: #fff;
+            font-size: 25px;
+		}
+		
+		#depret{
+			font-size: 20px;
+			color: #fff;
+			
+		
+		}
+		
+
+
+        .quickbook{
+            width: 100%;
+            height: 550px;
+            background-color: #ffffff;
+
+        }
+
+        .quickbook table{
+            width: 100%;
+            margin: auto;
+        }
+        .quickbook table button{
+            width: 300px;
+            margin: auto;
+            height: 150px;
+            border: 5px solid #0024d5;
+            border-radius: 25px;
+            background-color: transparent;
+            color: #0024d5;
+            font-size: 25px;
+            margin-left: 100px;
+            margin-top: 80px;
+        }
+        .footer{
+            width: 100%;
+            background-color: #0024d5;
+            color: white;
+            height: 50px;
+            padding: 100px;
+
+        }
+        .footer table{
+            width: 100%;
+        }
+        #sitemap{
+            font-size: 25px;
+            text-decoration: none;
+        }
+        .footer table li{
+            list-style: none;
+            text-decoration: underline;
+        }
+        #smallsite{
+            width: 30%;
+        }
+        #footertitle{
+            font-size: 60px;
+            font-weight: bold;
+            padding-left: 50px;
+        }
+
+		    table {
+          margin: auto;
+        width: 50%;
+        border-collapse: collapse;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background-color: #007bff;
+        color: #fff;
+    }
+    tr:first-child {
+        font-weight: bold;
+    }
+    .innerbody{
+        padding-top: 100px;
+        height: 300px;
+        background-color: white;
+    }
+		
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="http://localhost:8000/Website.html#">Home</a></li>
+        <li><a href="http://localhost:8000/about.html">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+		<li><a href="#">Manage Bookings</a></li>
+    </ul>
+</nav>
+
+<div class="titlecard">
+    <div class="title">
+Please Manage you flight {{ name }}    </div>
+    <div class="titlebio">
+        we offer the most seemless flighting services
+    </div>
+    <button id="titlebutton">
+        Book Now
+    </button>
+</div>
+
+<div class="booking">
+</div>
+<script>
+    let select = document.getElementById("selectflight").value;
+
+</script>
+<div class="innerbody">
+    <table>
+        <thead>
+            <tr>
+                <th>Flight Booked</th>
+                <th>Time</th>
+                <th>Seats</th>
+                <th>Food Bought</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="Flight12345">
+                <td>{{ flight }} <button onclick="removerow(this)">Unbook</button></td>
+                <td>{{ time }}</td>
+                <td>
+                    {% for x in seat %}
+                    <li>{{ x }} <button onclick="removeitem(this)">Click For Cancel</button></li>
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for x in food %}
+                    <li>{{ x }} <button onclick="removeitem(this)">Cancel</button></li>
+                    {% endfor %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function removerow(btn) {
+        var row = btn.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+
+    function removeitem(btn) {
+        var listItem = btn.parentNode;
+        listItem.parentNode.removeChild(listItem);
+    }
+</script>
+
+
+<div class="footer">
+    <table>
+        <tr>
+            <td id="smallsite">
+                <li id="sitemap">SiteMap</li>
+                <li>Home</li>
+                <li>About us</li>
+                <li>Contact us</li>
+                <li>Book now</li>
+            </td>
+            <td id="footertitle">SkyVista</td>
+        </tr>
+    </table>
+</div>
+
+
+</body>
+</html>
