@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-image: url('drinksback.jpg'); /* Replace 'background.jpg' with your image file */
+            background-image: url("{{ url_for('static', filename='images/drinksback.jpg') }}");
             background-size: cover;
             background-position: center;
             width: 100%;
@@ -314,19 +314,20 @@ button:hover {
 
 <nav>
     <ul>
-        <li><a href="#">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
+        <li><a href="/drinks">Services</a></li>
         <li><a href="#">Contact</a></li>
+        <li><a href="/manage">Manage Bookings</a></li>
     </ul>
 </nav>
 
 <div class="titlecard">
     <div class="title">
-        SkyVista Menu
+        SkyVista Popular Flights
     </div>
     <div class="titlebio">
-        PAY FOR YOUR DRINKS/FOOD NOW
+        MOST POPULAR FLIGHT OPTIONS
     </div>
 
 
@@ -345,18 +346,23 @@ button:hover {
                     <h3>{{ flight['departure']['time'] }}</h3>
                 </div>
                 <div class="cardimage">
-                    <image src="arrow.png" class="arrow"></image>
+                    <image src="{{ url_for('static', filename='images/arrow.png') }}" class="arrow"></image>
                 </div>
                 <div class="cardfrom">
-                    <p>{{ flight['departure']['destination'] }}</p> 
+                    <p>{{ flight['departure']['destination'] }}</p>
+                    <h3>{{ flight['departure']['arrivalTime'] }}</h3>
                 </div>
             </div>
             <div class="blacklineholder">
-                <image src="black.jpeg" class="blackline"></image>
+                <image src="{{ url_for('static', filename='images/black.jpeg') }}" class="blackline"></image>
             </div>
             <p class="cardID">{{ flight['flightID'] }}</p>
             <div class="cardPriceHolder">
-                <p class="cardPrice"><a href=""> from $250</a></p>
+                <p class="cardPrice">
+                    <a href="{{ url_for('booking', flight_id=flight['flightID']) }}">
+                        from $250
+                    </a>
+                </p>
             </div>
         </div>
     {% endfor %}

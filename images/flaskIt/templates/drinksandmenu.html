@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
     <style>
-        
+
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-image: url('drinksback.jpg'); /* Replace 'background.jpg' with your image file */
+            background-image: url("{{ url_for('static', filename='images/drinksback.jpg') }}"); /* Replace 'background.jpg' with your image file */
             background-size: cover;
             background-position: center;
             width: 100%;
@@ -24,8 +24,8 @@
             align-items: center;
             flex-direction: column;
             width: 100%;
-            transform: translateY(30px); 
-			animation: fadeIn 3s ease forwards; 
+            transform: translateY(30px);
+			animation: fadeIn 3s ease forwards;
         }
 
         nav {
@@ -67,7 +67,7 @@
             float: left;
             margin-right: 30%;
         }
-        
+
         .titlebio {
             color: #ffffff;
             font-size: 30px;
@@ -79,7 +79,7 @@
             margin-right: 27%;
             text-align: left;
         }
-        
+
         #titlebutton {
             width: 150px;
             height: 60px;
@@ -211,11 +211,11 @@
         @keyframes fadeIn {
 		  from {
 			opacity: 0; /* Start from completely transparent */
-			transform: translateY(30px); 
+			transform: translateY(30px);
 		  }
 		  to {
 			opacity: 1; /* End at fully visible */
-			transform: translateY(0); 
+			transform: translateY(0);
 		  }
 		}
         .toppay{
@@ -319,134 +319,143 @@ button:hover {
 </head>
 <body>
 
-<nav>
-    <ul>
-        <li><a href="http://localhost:8000/Website.html#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="http://localhost:8000/DRINKSMENU.html#">Services</a></li>
-        <li><a href="#">Contact</a></li>
-    </ul>
-</nav>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="/drinks">Services</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Manage Bookings</a></li>
+        </ul>
+    </nav>
 
-<div class="titlecard">
-    <div class="title">
-        SkyVista Menu
-    </div>
-    <div class="titlebio">
-        PAY FOR YOUR DRINKS/FOOD NOW
-    </div>
-
-</div>
-
-<div class="booking">
- .
-</div>
-
-<div class="quickbook">
-
-{% for dict1 in menu['menu'] %}
-    <div class="card">
-        
-        <image class="imageforcard" src="{{ dict1['image'] }}"></image>
-        
-        <div class="writing">
-            <h4>{{ dict1['name'] }}</h4>
-            <p>{{ dict1['price'] }}</p>
-            <p>{{ dict1['shortDescription'] }}</p>
-            <button id="{{ dict1['name'] }}" onclick="addBeer()">
-                Add to order
-            </button>
+    <div class="titlecard">
+        <div class="title">
+            SkyVista Menu
         </div>
-   
+        <div class="titlebio">
+            PAY FOR YOUR DRINKS/FOOD NOW
+        </div>
     </div>
- {% endfor %}
 
-</div>
-
-<div class="payfororder">
-    <div class="toppay">
-    <div class="amount"><h3 id="total">Your amount is: </h3></div>
-    <div class="purchased">
-        <ul id='list'>
-			<li id='wineList'></li>
-			<li id='beerList'></li>
-		</ul>
+    <div class="booking">
+        <!-- Placeholder content -->
     </div>
-</div>
-<div class="card-form-container">
-    <h2>Enter Card Details</h2>
-    <form class="card-form">
-        <div class="form-group">
-            <label for="BookingId">Booking Number</label>
-            <input type="text" id="BookingID" name="BookingID" required>
-        </div>
-        <div class="form-group">
-            <label for="cardholder-name">Cardholder Name</label>
-            <input type="text" id="cardholder-name" name="cardholder-name" required>
-        </div>
-        <div class="form-group">
-            <label for="card-number">Card Number</label>
-            <input type="text" id="card-number" name="card-number" pattern="\d{16}" maxlength="16" required>
-        </div>
-        <div class="form-row">
-            <div class="form-group">
-                <label for="expiration-date">Expiration Date</label>
-                <input type="text" id="expiration-date" name="expiration-date" placeholder="MM/YY" pattern="\d{2}/\d{2}" required>
-            </div>
-            <div class="form-group">
-                <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" pattern="\d{3}" maxlength="3" required>
+
+    <div class="quickbook">
+        {% for dict1 in menu['menu'] %}
+        <div class="card">
+            <image class="imageforcard" src="{{ dict1['image'] }}"></image>
+            <div class="writing">
+                <h4 id="{{ dict1['name'] }}">{{ dict1['name'] }}</h4>
+                <p id="{{ dict1['name'] }}{{ dict1['price'] }}">${{ dict1['price'] }}</p>
+                <p>{{ dict1['shortDescription'] }}</p>
+                <button onclick="addToOrder('{{ dict1['name'] }}', {{ dict1['price'] }})">
+                    Add to order
+                </button>
+                <button onclick="removeFromOrder('{{ dict1['name'] }}', {{ dict1['price'] }})">
+                    remove from order
+                </button>
+
             </div>
         </div>
-        <button type="submit">Pay Now</button>
-    </form>
-</div>
-</div>
+        {% endfor %}
+    </div>
 
-<div class="footer">
-    <table>
-        <tr>
-            <td id="smallsite">
-                <li id="sitemap">SiteMap</li>
-                <li>Home</li>
-                <li>About us</li>
-                <li>Contact us</li>
-                <li>Book now</li>
-            </td>
-            <td id="footertitle">SkyVista</td>
-        </tr>
-    </table>
-</div>
-<script>
-	let price = 0;
-	let wineAmount = 0;
-	let beerAmount = 0;
-	
-	function addWine(){
-		let winePrice=50;
-		
-		price = price + winePrice;
-		
-		wineAmount = wineAmount+1;
-		document.getElementById('wineList').textContent = `wine x`+wineAmount;
-		
-		document.getElementById('total').textContent = `Your amount is: $${price}`;
-		
-	
-	}
-	
-	function addBeer(){
-		let beerPrice=10;
-		price = price + beerPrice;
-		
-		beerAmount = beerAmount+1;
-		document.getElementById('beerList').textContent = `beer x` +beerAmount;
-		
-		document.getElementById('total').textContent = `Your amount is: $${price}`;
-		
-	}
-	
-	
-</script>
+    <div class="payfororder">
+        <div class="toppay">
+            <div class="amount">
+                <h3 id="total">Your amount is: $0.00</h3>
+            </div>
+            <div class="purchased">
+                <ul id='list'></ul>
+            </div>
+        </div>
+        <div id="form" class="card-form-container">
+            <h2>Enter Card Details</h2>
+            <form class="card-form" action="/updateDrinks" method="POST">
+                <div class="form-group">
+                    <label for="BookingId">Booking Number</label>
+                    <input type="text" id="BookingID" name="BookingID" required>
+                </div>
+                <div class="form-group">
+                    <label for="cardholder-name">Cardholder Name</label>
+                    <input type="text" id="cardholder-name" name="cardholder-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" name="card-number" pattern="\d{16}" maxlength="16" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expiration-date">Expiration Date</label>
+                        <input type="text" id="expiration-date" name="expiration-date" placeholder="MM/YY" pattern="\d{2}/\d{2}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" pattern="\d{3}" maxlength="3" required>
+                    </div>
+                </div>
+                <input type="hidden" id ="oooohImHidden" name="oooohImHidden" value="">
+                <button type="submit">Pay Now</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <table>
+            <tr>
+                <td id="smallsite">
+                    <li id="sitemap">SiteMap</li>
+                    <li>Home</li>
+                    <li>About us</li>
+                    <li>Contact us</li>
+                    <li>Book now</li>
+                </td>
+                <td id="footertitle">SkyVista</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        let price = 0;
+        let order = [];
+        let orderName = [];
+
+        function addToOrder(name, itemPrice) {
+            order.push({ name: name, price: itemPrice });
+            orderName.push(name);
+            price = price + itemPrice;
+            document.getElementById('total').textContent = `Your amount is: $${price.toFixed(2)}`;
+            updateOrderDisplay();
+        }
+
+        function removeFromOrder(name, itemPrice) {
+            const index = order.findIndex(item => item.name === name && item.price === itemPrice);
+            if (index !== -1) {
+                order.splice(index, 1);
+                price = price - itemPrice;
+                document.getElementById('total').textContent = `Your amount is: $${price.toFixed(2)}`;
+                updateOrderDisplay();
+            }
+        }
+
+        function updateOrderDisplay() {
+            const listElement = document.getElementById('list');
+            listElement.innerHTML = '';
+            for (let item of order) {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+                listElement.appendChild(listItem);
+
+            }
+
+            document.getElementById('oooohImHidden').value = orderName.join(',');
+
+        }
+
+        
+
+    </script>
 </body>
 </html>

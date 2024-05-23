@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
     <style>
-        
+
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-image: url(''); /* Replace 'background.jpg' with your image file */
+            background-image: url("{{ url_for('static', filename='images/drinksback.jpg') }}"); /* Replace 'background.jpg' with your image file */
             background-size: cover;
             background-position: center;
             width: 100%;
@@ -24,21 +24,22 @@
             align-items: center;
             flex-direction: column;
             width: 100%;
-			opacity: 0; /* Initially hidden */
-			transform: translateY(30px); 
-			animation: fadeIn 3s ease forwards; 
+            opacity: 0; /* Initially hidden */
+            transform: translateY(30px);
+            animation: fadeIn 3s ease forwards;
         }
-		
-		@keyframes fadeIn {
-		  from {
-			opacity: 0; /* Start from completely transparent */
-			transform: translateY(30px); 
-		  }
-		  to {
-			opacity: 1; /* End at fully visible */
-			transform: translateY(0); 
-		  }
-		}
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0; /* Start from completely transparent */
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1; /* End at fully visible */
+                transform: translateY(0);
+            }
+        }
 
         nav {
             background-color: #0024d5;
@@ -50,24 +51,24 @@
             z-index: 1000;
         }
 
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
+            nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+            }
 
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
+                nav ul li {
+                    display: inline;
+                    margin-right: 20px;
+                }
 
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-        }
+                    nav ul li a {
+                        color: #fff;
+                        text-decoration: none;
+                        font-weight: bold;
+                        font-size: 18px;
+                    }
 
         .title {
             color: #ffffff;
@@ -79,7 +80,7 @@
             float: left;
             margin-right: 40%;
         }
-        
+
         .titlebio {
             color: #ffffff;
             font-size: 30px;
@@ -91,7 +92,7 @@
             margin-right: 27%;
             text-align: left;
         }
-        
+
         #titlebutton {
             width: 150px;
             height: 60px;
@@ -101,88 +102,90 @@
             background-color: transparent;
             margin-right: 54%;
         }
-        .booking{
+
+        .booking {
             width: 100%;
             height: 100px;
             background-color: #0024d5;
-			
+        }
 
-        }
-        .booking table{
-            width: 100%;
-			margin-left: 100px;
-		
-        }
-		
-        .booking table label{
-			display: block;
-            margin-left: -100px;
-            margin-bottom: -25px;
-        }
-		
-		#labeltitle{
-			width: 250px;
+            .booking table {
+                width: 100%;
+                margin-left: 100px;
+            }
+
+                .booking table label {
+                    display: block;
+                    margin-left: -100px;
+                    margin-bottom: -25px;
+                }
+
+        #labeltitle {
+            width: 250px;
             height: 50px;
             background-color: transparent;
             color: #fff;
             font-size: 25px;
-		}
-		
-		#depret{
-			font-size: 20px;
-			color: #fff;
-			
-		
-		}
-		
+        }
+
+        #depret {
+            font-size: 20px;
+            color: #fff;
+        }
 
 
-        .quickbook{
+
+        .quickbook {
             width: 100%;
             height: 550px;
             background-color: #ffffff;
-
         }
 
-        .quickbook table{
-            width: 100%;
-            margin: auto;
-        }
-        .quickbook table button{
-            width: 300px;
-            margin: auto;
-            height: 150px;
-            border: 5px solid #0024d5;
-            border-radius: 25px;
-            background-color: transparent;
-            color: #0024d5;
-            font-size: 25px;
-            margin-left: 100px;
-            margin-top: 80px;
-        }
-        .footer{
+            .quickbook table {
+                width: 100%;
+                margin: auto;
+            }
+
+                .quickbook table button {
+                    width: 300px;
+                    margin: auto;
+                    height: 150px;
+                    border: 5px solid #0024d5;
+                    border-radius: 25px;
+                    background-color: transparent;
+                    color: #0024d5;
+                    font-size: 25px;
+                    margin-left: 100px;
+                    margin-top: 80px;
+                }
+
+        .footer {
             width: 100%;
             background-color: #0024d5;
             color: white;
             height: 50px;
             padding: 100px;
+        }
 
-        }
-        .footer table{
-            width: 100%;
-        }
-        #sitemap{
+            .footer table {
+                width: 100%;
+            }
+
+        #sitemap {
             font-size: 25px;
             text-decoration: none;
         }
-        .footer table li{
+
+        .footer table li {
             list-style: none;
             text-decoration: underline;
         }
-        #smallsite{
+
+        #smallsite {
             width: 30%;
         }
-        #footertitle{
+
+        #footertitle {
             font-size: 60px;
             font-weight: bold;
             padding-left: 50px;
@@ -198,14 +201,17 @@
             width: 60%;
             border: 2px solid black;
         }
+
         table {
             border-collapse: collapse;
             width: 100%;
         }
+
         td {
             padding: 10px;
             text-align: center;
         }
+
         .seat {
             width: 60px;
             height: 60px;
@@ -217,307 +223,321 @@
             cursor: pointer;
             transition: background-color 0.3s, color 0.3s, transform 0.3s;
         }
-        .seat:hover {
-            background-color: #007bff;
-            color: #fff;
-            transform: scale(1.1);
-        }
+
+            .seat:hover {
+                background-color: #007bff;
+                color: #fff;
+                transform: scale(1.1);
+            }
+
         .booked {
             background-color: #28a745;
             color: #fff;
             border-color: #28a745;
         }
-        .booked:hover {
-            background-color: #218838;
-            border-color: #1e7e34;
-        }
+
+            .booked:hover {
+                background-color: #218838;
+                border-color: #1e7e34;
+            }
+
         .available {
             background-color: #f8f9fa;
             color: #000;
         }
-		
-		.overlay {
-			display: none; /* Hidden by default */
-			position: fixed; /* Stay in place */
-			z-index: 1; /* Sit on top */
-			left: 0;
-			top: 0;
-			width: 100%; /* Full width */
-			height: 100%; /* Full height */
-			background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
-		}
 
-		.popup {
-			background-color: #fff;
-			margin: 15% auto; /* 15% from the top and centered */
-			padding: 20px;
-			border: 1px solid #888;
-			width: 80%; /* Could be more or less, depending on screen size */
-			max-width: 500px;
-			border-radius: 10px;
-		}
+        .overlay {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+        }
 
-		.close {
-			color: #aaa;
-			float: right;
-			font-size: 28px;
-			font-weight: bold;
-			cursor: pointer;
-		}
+        .popup {
+            background-color: #fff;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            max-width: 500px;
+            border-radius: 10px;
+        }
 
-		.close:hover,
-		.close:focus {
-			color: black;
-			text-decoration: none;
-			cursor: pointer;
-		}
-		
-		.form-group {
-			margin-bottom: 15px;
-		}
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
-		label {
-			display: block;
-			margin-bottom: 5px;
-		}
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
 
-		input[type="text"] {
-			width: 100%;
-			padding: 8px;
-			box-sizing: border-box;
-			border: 1px solid #ccc;
-			border-radius: 4px;
-		}
-		
-		
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
 
-<nav>
-    <ul>
-        <li><a href="http://localhost:8000/Website.html#">Home</a></li>
-        <li><a href="http://localhost:8000/about.html">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
-		<li><a href="#">Manage Bookings</a></li>
-    </ul>
-</nav>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="/drinks">Services</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="/manage">Manage Bookings</a></li>
+        </ul>
+    </nav>
 
-<div class="titlecard">
-    <div class="title">
-        Book your Flight
+    <div class="titlecard">
+        <div class="title">
+            Book your Flight
+        </div>
+        <div class="titlebio">
+            we offer the most seemless flighting services
+        </div>
+        <button id="titlebutton">
+            Book Now
+        </button>
     </div>
-    <div class="titlebio">
-        we offer the most seemless flighting services
+
+    <div class="booking">
+
+        <select name="flightnumber" id="selectflight">
+            {% for dict1 in flights['flightData'] %}
+            <option value="{{ dict1['flightID'] }}">{{ dict1['flightID'] }}</option>
+            {% endfor %}
+        </select>
+
     </div>
-    <button id="titlebutton">
-        Book Now
-    </button>
-</div>
 
-<div class="booking">
+    <div id="plane-seats">
 
-    <select name="flightnumber" id="selectflight">
-        {% for dict1 in flights['flightData'] %}
-        <option value="{{ dict1['flightID'] }}">{{ dict1['flightID'] }}</option>
-        {% endfor %}
-    </select>
+        <table>
+            <tbody>
 
-</div>
-
-<div id="plane-seats">
-
-    <table>
-        <tbody>
-
-            <tr>
-                <td><div class="seat available" id="A1" onclick="toggleSeat(this)">A1</div></td>
-                <td><div class="seat available" id="B1" onclick="toggleSeat(this)">B1</div></td>
-            </tr>
-            <tr>
-                <td><div class="seat available" id="A2" onclick="toggleSeat(this)">A2</div></td>
-                <td><div class="seat available" id="B2" onclick="toggleSeat(this)">B2</div></td>
-            </tr>
-            <tr>
-                <td><div class="seat available" id="A3" onclick="toggleSeat(this)">A3</div></td>
-                <td><div class="seat available" id="B3" onclick="toggleSeat(this)">B3</div></td>
-            </tr>
-            <tr>
-                <td><div class="seat available" id="A4" onclick="toggleSeat(this)">A4</div></td>
-                <td><div class="seat available" id="B4" onclick="toggleSeat(this)">B4</div></td>
-            </tr>
-            <tr>
-                <td><div class="seat available" id="A5" onclick="toggleSeat(this)">A5</div></td>
-                <td><div class="seat available" id="B5" onclick="toggleSeat(this)">B5</div></td>
-            </tr>
-            <tr>
-                <td><div class="seat available" id="A6" onclick="toggleSeat(this)">A6</div></td>
-                <td><div class="seat available" id="B6" onclick="toggleSeat(this)">B6</div></td>
-            </tr>
-            <tr>
-                <td><div class="seat available" id="A7" onclick="toggleSeat(this)">A7</div></td>
-                <td><div class="seat available" id="B7" onclick="toggleSeat(this)">B7</div></td>
-            </tr>
-            <tr>
-                <td><div class="seat available" id="A8" onclick="toggleSeat(this)">A8</div></td>
-                <td><div class="seat available" id="B8" onclick="toggleSeat(this)">B8</div></td>
-            </tr>
-            <tr>
-                <td><div class="seat available" id="A9" onclick="toggleSeat(this)">A9</div></td>
-                <td><div class="seat available" id="B9" onclick="toggleSeat(this)">B9</div></td>
-            </tr>
-            <tr>
-                <td><div class="seat available" id="A10" onclick="toggleSeat(this)">A10</div></td>
-                <td><div class="seat available" id="B10"onclick="toggleSeat(this)">B10</div></td>
-            </tr>
-            <tr>
-                <td><div class="seat available" id="A11" onclick="toggleSeat(this)">A11</div></td>
-                <td><div class="seat available" id="B11" onclick="toggleSeat(this)">B11</div></td>
-				<td><button id="openPopupBtn">Proceed to Payment</div></td>
-            </tr>
-        </tbody>
+                <tr>
+                    <td><div class="seat available" id="A1" onclick="toggleSeat(this)">A1</div></td>
+                    <td><div class="seat available" id="B1" onclick="toggleSeat(this)">B1</div></td>
+                </tr>
+                <tr>
+                    <td><div class="seat available" id="A2" onclick="toggleSeat(this)">A2</div></td>
+                    <td><div class="seat available" id="B2" onclick="toggleSeat(this)">B2</div></td>
+                </tr>
+                <tr>
+                    <td><div class="seat available" id="A3" onclick="toggleSeat(this)">A3</div></td>
+                    <td><div class="seat available" id="B3" onclick="toggleSeat(this)">B3</div></td>
+                </tr>
+                <tr>
+                    <td><div class="seat available" id="A4" onclick="toggleSeat(this)">A4</div></td>
+                    <td><div class="seat available" id="B4" onclick="toggleSeat(this)">B4</div></td>
+                </tr>
+                <tr>
+                    <td><div class="seat available" id="A5" onclick="toggleSeat(this)">A5</div></td>
+                    <td><div class="seat available" id="B5" onclick="toggleSeat(this)">B5</div></td>
+                </tr>
+                <tr>
+                    <td><div class="seat available" id="A6" onclick="toggleSeat(this)">A6</div></td>
+                    <td><div class="seat available" id="B6" onclick="toggleSeat(this)">B6</div></td>
+                </tr>
+                <tr>
+                    <td><div class="seat available" id="A7" onclick="toggleSeat(this)">A7</div></td>
+                    <td><div class="seat available" id="B7" onclick="toggleSeat(this)">B7</div></td>
+                </tr>
+                <tr>
+                    <td><div class="seat available" id="A8" onclick="toggleSeat(this)">A8</div></td>
+                    <td><div class="seat available" id="B8" onclick="toggleSeat(this)">B8</div></td>
+                </tr>
+                <tr>
+                    <td><div class="seat available" id="A9" onclick="toggleSeat(this)">A9</div></td>
+                    <td><div class="seat available" id="B9" onclick="toggleSeat(this)">B9</div></td>
+                </tr>
+                <tr>
+                    <td><div class="seat available" id="A10" onclick="toggleSeat(this)">A10</div></td>
+                    <td><div class="seat available" id="B10" onclick="toggleSeat(this)">B10</div></td>
+                </tr>
+                <tr>
+                    <td><div class="seat available" id="A11" onclick="toggleSeat(this)">A11</div></td>
+                    <td><div class="seat available" id="B11" onclick="toggleSeat(this)">B11</div></td>
+                    <td><button id="openPopupBtn">Proceed to Payment
+    </div></td>
+    </tr>
+    </tbody>
     </table>
-</div>
-
-<div id="popupOverlay" class="overlay">
-    <div id="popupWindow" class="popup">
-        <span id="closePopupBtn" class="close">&times;</span>
-        <h2>Enter Details</h2>
-		 <form action="/submit" method="post" id="popupForm">
-            <div class="form-group">
-                <label for="firstName">First Name: </label>
-                <input type="text" id="firstName" name="firstName" required>
-            </div>
-            <div class="form-group">
-                <label for="lastName">Last Name: </label>
-                <input type="text" id="lastName" name="lastName" required>
-            </div>
-            <div class="form-group">
-                <label for="creditNum">Credit Card Number: </label>
-                <input type="text" id="creditNum" name="creditNum" required>
-            </div>
-            <div class="form-group">
-                <label for="CVV">CVV: </label>
-                <input type="text" id="CVV" name="CVV" required>
-            </div>
-			<div class="form-group">
-				<label for="EXP">EXP Date: </label>
-                <input type="month" id="EXP" name="EXP" required>
-			</div>
-			<input type="hidden" id="seatsVar" name="seatsVar" value="">
-            <input type="hidden" id="BookingId" name="BookingId" value="">
-            <button type="submit">Submit</button>
-        </form>
     </div>
-</div>
 
-<div class="footer">
-    <table>
-        <tr>
-            <td id="smallsite">
-                <li id="sitemap">SiteMap</li>
-                <li>Home</li>
-                <li>About us</li>
-                <li>Contact us</li>
-                <li>Book now</li>
-            </td>
-            <td id="footertitle">SkyVista</td>
-        </tr>
-    </table>
-</div>
+    <div id="popupOverlay" class="overlay">
+        <div id="popupWindow" class="popup">
+            <span id="closePopupBtn" class="close">&times;</span>
+            <h2>Enter Details</h2>
+            <form action="/submit" method="post" id="popupForm">
+                <div class="form-group">
+                    <label for="firstName">First Name: </label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name: </label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="creditNum">Credit Card Number: </label>
+                    <input type="text" id="creditNum" name="creditNum" required>
+                </div>
+                <div class="form-group">
+                    <label for="CVV">CVV: </label>
+                    <input type="text" id="CVV" name="CVV" required>
+                </div>
+                <div class="form-group">
+                    <label for="EXP">EXP Date: </label>
+                    <input type="month" id="EXP" name="EXP" required>
+                </div>
+                <input type="hidden" id="seatsVar" name="seatsVar" value="">
+                <input type="hidden" id="BookingId" name="BookingId" value="">
+                <input type="hidden" id="flightID" name="flightID" value="">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
 
-<script>
+    <div class="footer">
+        <table>
+            <tr>
+                <td id="smallsite">
+                    <li id="sitemap">SiteMap</li>
+                    <li>Home</li>
+                    <li>About us</li>
+                    <li>Contact us</li>
+                    <li>Book now</li>
+                </td>
+                <td id="footertitle">SkyVista</td>
+            </tr>
+        </table>
+    </div>
 
-	let seatList = [];
-	document.getElementById('seatsVar').value=seatList;
+    <script>
 
-    let bookingNumber = generateBookingNumber();
-    document.getElementById('BookingId').value=bookingNumber;
+        let seatList = [];
+        document.getElementById('seatsVar').value = seatList;
 
-	
-	document.addEventListener('DOMContentLoaded', (event) => {
-		const openPopupBtn = document.getElementById('openPopupBtn');
-		const closePopupBtn = document.getElementById('closePopupBtn');
-		const popupOverlay = document.getElementById('popupOverlay');
-		const popupForm = document.getElementById('popupForm');
-	
-       
-			
-		function openPopup() {
-			popupOverlay.style.display = 'block';
-		}
+        let bookingNumber = generateBookingNumber();
+        document.getElementById('BookingId').value = bookingNumber;
 
-		function closePopup() {
-			popupOverlay.style.display = 'none';
-		}
 
-		openPopupBtn.addEventListener('click', openPopup);
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const openPopupBtn = document.getElementById('openPopupBtn');
+            const closePopupBtn = document.getElementById('closePopupBtn');
+            const popupOverlay = document.getElementById('popupOverlay');
+            const popupForm = document.getElementById('popupForm');
+            const selectFlight = document.getElementById('selectflight');
+            const flightIdInput = document.getElementById('flightID');
 
-		closePopupBtn.addEventListener('click', closePopup);
 
-		window.addEventListener('click', (event) => {
-			if (event.target === popupOverlay) {
-				closePopup();
-			}
-		});
-		
-			
+            selectFlight.addEventListener('change', () => {
+                const selectedOption = selectFlight.options[selectFlight.selectedIndex];
+                const selectedFlightId = selectedOption.value;
+                flightIdInput.value = selectedFlightId;
+                console.log('Selected Flight ID:', selectedFlightId);
+            });    
+
+
+
+            function openPopup() {
+                popupOverlay.style.display = 'block';
+            }
+
+            function closePopup() {
+                popupOverlay.style.display = 'none';
+            }
+
+            openPopupBtn.addEventListener('click', openPopup);
+
+            closePopupBtn.addEventListener('click', closePopup);
+
+            window.addEventListener('click', (event) => {
+                if (event.target === popupOverlay) {
+                    closePopup();
+                }
+            });
+
+
             const formData = {
                 firstName: document.getElementById('firstName').value,
                 lastName: document.getElementById('lastName').value,
             };
-			
-			bookData.customer = formData;
-			bookData.seats = seatList;
 
-            
-			
-			fetch('bookingInfo.json')
-				.then(response => response.json())
-				.then(data => {
-					data.bookings.push(booking);
-					console.log(data);
-				})
-				.catch(error => console.error('Error fetching booking info:', error));
+            bookData.customer = formData;
+            bookData.seats = seatList;
+
+
+
+            fetch('bookingInfo.json')
+                .then(response => response.json())
+                .then(data => {
+                    data.bookings.push(booking);
+                    console.log(data);
+                })
+                .catch(error => console.error('Error fetching booking info:', error));
 
             closePopup();
         });
-			
-    ;
-	
-    function toggleSeat(seat) {
-    const seatID = seat.getAttribute('id');
-    
-    if (seat.classList.contains('booked')) {
-        seat.classList.remove('booked');
-        seat.classList.add('available');
-        seat.textContent = seatID;
-        
-        const index = seatList.indexOf(seatID);
-        if (index > -1) {
-            seatList.splice(index, 1);
-        }
-    } else {
-        seat.classList.remove('available');
-        seat.classList.add('booked');
-        seat.textContent = 'Booked';
-        
-        if (!seatList.includes(seatID)) {
-            seatList.push(seatID);
-        }            
-    }
-    console.log('Selected seats:', seatList);
-    
-    // Update the value of the hidden input field
-    document.getElementById('seatsVar').value = seatList.join(',');
-}
 
-	
-    function generateBookingNumber() {
-        return Math.floor(Math.random() * 1000000);
-    }
-	
-</script>
+        ;
+
+        function toggleSeat(seat) {
+            const seatID = seat.getAttribute('id');
+
+            if (seat.classList.contains('booked')) {
+                seat.classList.remove('booked');
+                seat.classList.add('available');
+                seat.textContent = seatID;
+
+                const index = seatList.indexOf(seatID);
+                if (index > -1) {
+                    seatList.splice(index, 1);
+                }
+            } else {
+                seat.classList.remove('available');
+                seat.classList.add('booked');
+                seat.textContent = 'Booked';
+
+                if (!seatList.includes(seatID)) {
+                    seatList.push(seatID);
+                }
+            }
+            console.log('Selected seats:', seatList);
+
+            // Update the value of the hidden input field
+            document.getElementById('seatsVar').value = seatList.join(',');
+        }
+
+
+        function generateBookingNumber() {
+            return Math.floor(Math.random() * 1000000);
+        }
+
+    </script>
 </body>
 </html>

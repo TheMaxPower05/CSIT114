@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("{{ url_for('static', filename='images/background.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            overflow-x: hidden; /* Prevent horizontal overflow */
+        }
+
+        .titlecard {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+			opacity: 0; /* Initially hidden */
+			transform: translateY(30px); 
+			animation: fadeIn 3s ease forwards; 
+        }
+		
+		@keyframes fadeIn {
+		  from {
+			opacity: 0; /* Start from completely transparent */
+			transform: translateY(30px); 
+		  }
+		  to {
+			opacity: 1; /* End at fully visible */
+			transform: translateY(0); 
+		  }
+		}
+
+        nav {
+            background-color: #0024d5;
+            padding: 15px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .title {
+            color: #ffffff;
+            font-size: 80px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            max-width: 35%;
+            float: left;
+            margin-right: 40%;
+        }
+        
+        .titlebio {
+            color: #ffffff;
+            font-size: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            max-width: 35%;
+            float: left;
+            margin-right: 27%;
+            text-align: left;
+        }
+        
+        #titlebutton {
+            width: 150px;
+            height: 60px;
+            border: 5px solid white;
+            border-radius: 25px;
+            color: white;
+            background-color: transparent;
+            margin-right: 54%;
+        }
+        .booking{
+            width: 100%;
+            height: 100px;
+            background-color: #0024d5;
+			
+
+        }
+        .booking table{
+            width: 100%;
+			margin-left: 100px;
+		
+        }
+		
+        .booking table label{
+			display: block;
+            margin-left: -100px;
+            margin-bottom: -25px;
+        }
+		
+		#labeltitle{
+			width: 250px;
+            height: 50px;
+            background-color: transparent;
+            color: #fff;
+            font-size: 25px;
+		}
+		
+		#depret{
+			font-size: 20px;
+			color: #fff;
+			
+		
+		}
+		
+
+
+        .quickbook{
+            width: 100%;
+            height: auto;
+            padding-bottom: 50px;
+            background-color: #ffffff;
+
+        }
+
+        .quickbook table{
+            width: 100%;
+            margin: auto;
+        }
+        .quickbook table button{
+            width: 300px;
+            margin: auto;
+            height: 150px;
+            border: 5px solid #0024d5;
+            border-radius: 25px;
+            background-color: transparent;
+            color: #0024d5;
+            font-size: 25px;
+            margin-left: 100px;
+            margin-top: 80px;
+        }
+        .footer{
+            width: 100%;
+            background-color: #0024d5;
+            color: white;
+            height: 50px;
+            padding: 100px;
+
+        }
+        .footer table{
+            width: 100%;
+        }
+        #sitemap{
+            font-size: 25px;
+            text-decoration: none;
+        }
+        .footer table li{
+            list-style: none;
+            text-decoration: underline;
+        }
+        #smallsite{
+            width: 30%;
+        }
+        #footertitle{
+            font-size: 60px;
+            font-weight: bold;
+            padding-left: 50px;
+        }
+        .toppay {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+        .card-container {
+            width: 60%;
+            height: auto;
+            border-radius: 25px;
+            margin: auto;
+            margin-top: 50px;
+            padding-top: 20px;
+            font-size: 25px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .cardwriting {
+            display: flex;
+        }
+
+        .cardfrom {
+            width: 33%;
+            text-align: center;
+        }
+
+        .arrow {
+            width: 33%;
+            margin: auto;
+        }
+
+        .cardimage {
+            width: 33%;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center;
+        }
+
+        .cardID {
+            width: 33%;
+            text-align: center;
+        }
+
+        .cardPriceHolder {
+            padding-top: 1px;
+            padding-bottom: 15px;
+            height: 50px;
+            width: 100%;
+            background-color: rgb(177, 177, 177);
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+
+        .cardPrice {
+            margin-top: 20px;
+            width: 33%;
+            text-align: center;
+            height: auto;
+        }
+
+        .blackline {
+            width: 70%;
+            height: 3px;
+        }
+
+        .blacklineholder {
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center;
+        }
+		
+		
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="/drinks">Services</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="/manage">Manage Bookings</a></li>
+    </ul>
+</nav>
+
+<div class="titlecard">
+    <div class="title">
+        SkyVista
+    </div>
+    <div class="titlebio">
+        Say hasta la vista to your sky high prices
+    </div>
+    <button id="titlebutton" onclick="window.location.href='/flights'">
+        Popular Flights
+    </button>
+</div>
+
+
+<div class="booking">
+<form id="bookingForm" onsubmit="saveFormData(event)">    
+<table>
+        <tr id="labeltitle">
+            <td>
+                <label for="from">Where From:</label>
+				
+            </td>
+            <td>
+                <label for="to">Where To:</label>
+				
+            </td>
+            <td>
+                <label for="search">When:</label>
+				
+            </td>
+        </tr>
+		<tr id="depret">
+			<td>
+				<input type="search" list="list1" id="from" name="from" required>
+				<datalist id="list1">
+					<option>Sydney</option>
+					<option>Melbourne</option>
+					<option>Hobart</option>
+					<option>Perth</option>
+					<option>Brisbane</option>
+					<option>Alice Spring</option>
+					<option>Canberra</option>
+					<option>Adelaide</option>
+				</datalist>
+			</td>
+			<td>
+				<input type="search" list="list2" id="to" name="to" required>
+				<datalist id="list2">
+					<option>Sydney</option>
+					<option>Melbourne</option>
+					<option>Hobart</option>
+					<option>Perth</option>
+					<option>Brisbane</option>
+					<option>Alice Spring</option>
+					<option>Canberra</option>
+					<option>Adelaide</option>
+				</datalist>
+			</td>
+			<td>
+				<label for="depart">Depart:</label>
+				<input type="date" id="depart" name="depart" required>
+				<label for="return">Return:</label>
+				<input type="date" id="return" name="return" required>
+			</td>
+			<td>
+				<button type="submit" onclick="saveFormData(event)">
+					Search Flight
+				</button>
+			</td>
+		</tr>
+    </table>
+</form>
+</div>
+
+
+<div class="quickbook">
+    {% for flight in flights['flightData'] %}
+    <div class="card-container">
+        <div class="cardwriting">
+            <div class="cardfrom">
+                <p>{{ flight['departure']['location'] }}</p>
+                <h3>{{ flight['departure']['time'] }}</h3>
+            </div>
+            <div class="cardimage">
+                <image src="{{ url_for('static', filename='images/arrow.png') }}" class="arrow"></image>
+            </div>
+            <div class="cardfrom">
+                <p>{{ flight['departure']['destination'] }}</p>
+                <h3>{{ flight['departure']['arrivalTime'] }}</h3>
+            </div>
+        </div>
+        <div class="blacklineholder">
+            <image src="{{ url_for('static', filename='images/black.jpeg') }}" class="blackline"></image>
+        </div>
+        <p class="cardID">{{ flight['flightID'] }}</p>
+        <div class="cardPriceHolder">
+            <p class="cardPrice">
+                <a href="{{ url_for('booking', flight_id=flight['flightID']) }}">
+                    from $250
+                </a>
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+<div class="footer">
+    <table>
+        <tr>
+            <td id="smallsite">
+                <li id="sitemap">SiteMap</li>
+                <li>Home</li>
+                <li>About us</li>
+                <li>Contact us</li>
+                <li>Book now</li>
+            </td>
+            <td id="footertitle">SkyVista</td>
+        </tr>
+    </table>
+</div>
+
+<script>
+	function saveFormData(event){
+		event.preventDefault();
+			
+		const formData = {
+			departure: {
+				from: document.getElementById('from').value,
+				depart: document.getElementById('depart').value,
+			},
+			arrival: {
+				to: document.getElementById('to').value,
+				return: document.getElementById('return').value
+				
+			}
+
+		};
+		console.log(formData);
+		
+		//localStorage.setItem('bookingData', JSON.stringify(formData));
+		console.log('Form data saved:', formData);
+		
+		//window.location.href = 'http://localhost:8000/flights.html';
+		
+		
+		}
+	
+</script>
+</body>
+</html>
